@@ -1,0 +1,417 @@
+<!DOCTYPE html>
+<html lang="pt-BR" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Um presente para Williane</title>
+    
+    <!-- Importando fonte do Google Fonts para um visual mais elegante -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- Importando o Tailwind CSS para estilização -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Configuração das cores baseadas no seu modelo -->
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        salmao: {
+                            fundo: '#F8A4A4', /* Cor do cabeçalho e rodapé */
+                            texto: '#F38D8D', /* Cor dos títulos */
+                            claro: '#fdf2f2'  /* Cor do texto da carta (mais suave) */
+                        },
+                        fundoPagina: '#F8F9FA' /* Cor de fundo principal */
+                    },
+                    fontFamily: {
+                        sans: ['Poppins', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
+    
+    <style>
+        /* Pequenos ajustes para garantir que as imagens fiquem todas do mesmo tamanho na galeria */
+        .galeria-img {
+            aspect-ratio: 4 / 3;
+            object-fit: cover;
+            width: 100%;
+        }
+        /* Efeitos de transição para a surpresa inicial */
+        .fade-out { opacity: 0; visibility: hidden; transition: all 1s ease-out; }
+        .fade-in { animation: fadeIn 1.5s ease-in forwards; }
+        @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
+    </style>
+</head>
+<body class="bg-fundoPagina font-sans text-gray-700 overflow-hidden" id="body">
+
+    <!-- 1. TELA DE BOAS-VINDAS / BOTÃO DE ENTRADA -->
+    <div id="welcome-screen" class="fixed inset-0 z-[100] flex flex-col items-center justify-center bg-salmao-fundo text-white">
+        <h1 class="text-3xl md:text-5xl font-bold mb-8 text-center px-4 animate-pulse">Uma surpresa especial...</h1>
+        <button onclick="startExperience()" class="px-8 py-4 bg-white text-salmao-texto rounded-full font-bold text-xl shadow-lg hover:scale-105 transition-transform duration-300 animate-bounce">
+            Clique para descobrir 💖
+        </button>
+    </div>
+
+    <!-- 2. MÚSICA DE FUNDO -->
+    <!-- INSTRUÇÃO: Substitua o 'src' abaixo pelo link direto de uma música .mp3 da sua escolha -->
+    <audio id="bg-music" src="Ed Sheeran - Perfect Duet (with Beyoncé) [Official Audio].mp3" loop>
+        <!-- <source src="https://cdn.pixabay.com/download/audio/2022/05/27/audio_1808fbf07a.mp3?filename=romantic-piano-112101.mp3" type="audio/mpeg"> -->
+    </audio>
+
+    <!-- CONTEÚDO PRINCIPAL (Envolvendo toda a página, oculto no começo) -->
+    <div id="main-content" class="hidden">
+
+    <!-- CABEÇALHO / MENU DE NAVEGAÇÃO -->
+    <nav class="bg-salmao-fundo text-white py-4 shadow-sm sticky top-0 z-50">
+        <div class="container mx-auto px-4 flex justify-center gap-6 md:gap-12 text-sm md:text-base font-medium">
+            <a href="#home" class="hover:text-salmao-claro transition-colors">Home</a>
+            <a href="#carta" class="hover:text-salmao-claro transition-colors">Leia</a>
+            <a href="#fotos" class="hover:text-salmao-claro transition-colors">Nossas Fotos</a>
+        </div>
+    </nav>
+
+    <!-- SEÇÃO PRINCIPAL (HOME) -->
+    <header id="home" class="container mx-auto px-6 py-20 min-h-[60vh] flex flex-col md:flex-row items-center justify-center gap-12">
+        <div class="md:w-1/2 text-center md:text-left">
+            <h1 class="text-4xl md:text-5xl font-bold text-salmao-texto leading-tight mb-8">
+                Essa página é um<br>presente para você,<br>Williane!
+            </h1>
+            
+            <!-- 3. CONTADOR DE TEMPO JUNTOS -->
+            <div class="bg-white/80 backdrop-blur-sm p-6 rounded-2xl shadow-md border border-salmao-claro inline-block transform hover:scale-105 transition-transform duration-300">
+                <h3 class="text-xs md:text-sm uppercase tracking-widest text-salmao-texto font-bold mb-3">Construindo nossa história há:</h3>
+                <div id="time-together" class="text-gray-700 font-bold text-lg md:text-xl grid grid-cols-2 gap-x-6 gap-y-2 text-left">
+                    <!-- O JavaScript preencherá isso -->
+                    Carregando tempo...
+                </div>
+                <div class="flex items-center gap-2 mt-4 pt-3 border-t border-salmao-claro/50">
+                    <span class="text-xl">💍</span>
+                    <p class="text-xs md:text-sm text-gray-500 font-medium">Casados desde 17 de Janeiro de 2017</p>
+                </div>
+            </div>
+            
+        </div>
+        <div class="md:w-1/2 flex justify-center">
+            <!-- INSTRUÇÃO: Para trocar essa imagem de ilustração, substitua o link 'src' abaixo -->
+            <img src="./assets/IMG_20250924_162923.jpg" 
+                 alt="Presente e celebração" 
+                 class="w-full max-w-md rounded-2xl shadow-lg transform hover:-translate-y-2 transition-transform duration-300">
+        </div>
+    </header>
+
+    <!-- SEÇÃO DA CARTA -->
+    <section id="carta" class="bg-white py-20 px-6">
+        <div class="container mx-auto max-w-4xl text-center">
+            <h2 class="text-3xl md:text-4xl font-bold text-salmao-texto mb-8">A garota perfeita</h2>
+            
+            <!-- INSTRUÇÃO: Escreva sua carta aqui dentro da tag <p>. Você pode criar vários <p> se quiser parágrafos separados -->
+            <div class="text-gray-500 leading-relaxed text-base md:text-lg space-y-4">
+                <p>
+                    Para você que eu sempre quis ❤️
+                </p>
+                <p>
+                    Eu encontrei um amor para mim
+                    Querida, apenas mergulhe de cabeça e siga meus passos
+                    Eu encontrei uma garota, linda e doce
+                    Eu nunca soube que você era quem estava esperando por mim
+
+                    Porque nós éramos apenas crianças quando nos apaixonamos
+                    Sem saber o que era aquilo
+                    Eu não vou desistir de você desta vez
+                    Querida, apenas me beije devagar
+                    Seu coração é tudo o que eu possuo
+                    E em seus olhos, você está segurando o meu
+                </p>
+                <p>
+                    Amor, eu estou dançando no escuro
+                    Com você entre meus braços
+                    Descalços na grama
+                    Ouvindo nossa música favorita
+                    Quando você disse que estava toda bagunçada
+                    Eu sussurrei baixinho
+                    Mas você ouviu
+                    Querida, você está perfeita esta noite
+                </p>
+                <p>
+                    Eu encontrei uma mulher, mais forte do que qualquer pessoa que conheço
+                    Ela compartilha meus sonhos, e hoje compartilhamos o mesmo lar
+                    Eu encontrei um amor para carregar mais do que apenas meus segredos
+                    Para carregar amor, para gerar nossos próprios filhos
+
+                    Nós ainda somos crianças, mas estamos tão apaixonados
+                    Lutando contra todas as probabilidades
+                    Eu sei que ficaremos bem desta vez
+                    Querida, apenas segure minha mão
+                    Seja minha garota, eu serei seu homem
+                    Eu vejo meu futuro em seus olhos
+                </p>
+                <p>
+                    Eu tenho fé no que vejo
+                    Agora eu sei que conheci um anjo em pessoa
+                    E ela está perfeita
+                    E sim, eu não mereço isso
+                    Querida, você não é, sempre foi...perfeita.
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- SEÇÃO DE FOTOS -->
+    <section id="fotos" class="container mx-auto px-6 py-20">
+        <h2 class="text-3xl md:text-4xl font-bold text-salmao-texto text-center mb-12">Nossas fotos</h2>
+        
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 max-w-6xl mx-auto">
+            
+            <!-- FOTO 1 -->
+            <div class="overflow-hidden rounded-xl shadow-md hover:shadow-xl transition-shadow duration-300">
+                <!-- INSTRUÇÃO: Troque o link 'src' pela URL da sua foto -->
+                <img src="./assets/IMG-20220225-WA0097.jpg" alt="Momento especial 1" class="galeria-img hover:scale-105 transition-transform duration-500">
+            </div>
+
+            <!-- FOTO 2 -->
+            <div class="overflow-hidden rounded-xl shadow-md hover:shadow-xl transition-shadow duration-300">
+                <!-- INSTRUÇÃO: Troque o link 'src' pela URL da sua foto -->
+                <img src="./assets/IMG-20220225-WA0132.jpg" alt="Momento especial 2" class="galeria-img hover:scale-105 transition-transform duration-500">
+            </div>
+
+            <!-- FOTO 3 -->
+            <div class="overflow-hidden rounded-xl shadow-md hover:shadow-xl transition-shadow duration-300">
+                <!-- INSTRUÇÃO: Troque o link 'src' pela URL da sua foto -->
+                <img src="./assets/IMG_20231213_184251_999.jpg" alt="Momento especial 3" class="galeria-img hover:scale-105 transition-transform duration-500">
+            </div>
+
+            <!-- FOTO 4 -->
+            <div class="overflow-hidden rounded-xl shadow-md hover:shadow-xl transition-shadow duration-300">
+                <!-- INSTRUÇÃO: Troque o link 'src' pela URL da sua foto -->
+                <img src="./assets/IMG_20241219_203440.jpg" alt="Momento especial 4" class="galeria-img hover:scale-105 transition-transform duration-500">
+            </div>
+
+            <!-- FOTO 5 -->
+            <div class="overflow-hidden rounded-xl shadow-md hover:shadow-xl transition-shadow duration-300">
+                <!-- INSTRUÇÃO: Troque o link 'src' pela URL da sua foto -->
+                <img src="/assets/IMG_20250109_144026.jpg" alt="Momento especial 5" class="galeria-img hover:scale-105 transition-transform duration-500">
+            </div>
+
+            <!-- FOTO 6 -->
+            <div class="overflow-hidden rounded-xl shadow-md hover:shadow-xl transition-shadow duration-300">
+                <!-- INSTRUÇÃO: Troque o link 'src' pela URL da sua foto -->
+                <img src="./assets/IMG_20241219_203440.jpg" alt="Momento especial 6" class="galeria-img hover:scale-105 transition-transform duration-500">
+            </div>
+
+            <!-- FOTO 7 -->
+            <div class="overflow-hidden rounded-xl shadow-md hover:shadow-xl transition-shadow duration-300">
+                <!-- INSTRUÇÃO: Troque o link 'src' pela URL da sua foto -->
+                <img src="./assets/IMG_20250109_144026.jpg" alt="Momento especial 7" class="galeria-img hover:scale-105 transition-transform duration-500">
+            </div>
+
+            <!-- FOTO 8 -->
+            <div class="overflow-hidden rounded-xl shadow-md hover:shadow-xl transition-shadow duration-300">
+                <!-- INSTRUÇÃO: Troque o link 'src' pela URL da sua foto -->
+                <img src="./assets/IMG_20250222_112850.jpg" alt="Momento especial 8" class="galeria-img hover:scale-105 transition-transform duration-500">
+            </div>
+
+            <!-- FOTO 9 -->
+            <div class="overflow-hidden rounded-xl shadow-md hover:shadow-xl transition-shadow duration-300">
+                <!-- INSTRUÇÃO: Troque o link 'src' pela URL da sua foto -->
+                <img src="./assets/IMG_20250308_191806.jpg" alt="Momento especial 9" class="galeria-img hover:scale-105 transition-transform duration-500">
+            </div>
+
+            <!-- FOTO 10 -->
+            <div class="overflow-hidden rounded-xl shadow-md hover:shadow-xl transition-shadow duration-300">
+                <!-- INSTRUÇÃO: Troque o link 'src' pela URL da sua foto -->
+                <img src="./assets/IMG_20250331_200253.jpg" alt="Momento especial 10" class="galeria-img hover:scale-105 transition-transform duration-500">
+            </div>
+
+            <!-- FOTO 11 -->
+            <div class="overflow-hidden rounded-xl shadow-md hover:shadow-xl transition-shadow duration-300">
+                <!-- INSTRUÇÃO: Troque o link 'src' pela URL da sua foto -->
+                <img src="./assets/IMG_20250515_214518~2.jpg" alt="Momento especial 11" class="galeria-img hover:scale-105 transition-transform duration-500">
+            </div>
+
+            <!-- FOTO 12 -->
+            <div class="overflow-hidden rounded-xl shadow-md hover:shadow-xl transition-shadow duration-300">
+                <!-- INSTRUÇÃO: Troque o link 'src' pela URL da sua foto -->
+                <img src="./assets/IMG_20251227_213324144.jpg" alt="Momento especial 12" class="galeria-img hover:scale-105 transition-transform duration-500">
+            </div>
+
+            <!-- FOTO 13 -->
+            <div class="overflow-hidden rounded-xl shadow-md hover:shadow-xl transition-shadow duration-300">
+                <!-- INSTRUÇÃO: Troque o link 'src' pela URL da sua foto -->
+                <img src="./assets/IMG_20260101_003244540.jpg" alt="Momento especial 13" class="galeria-img hover:scale-105 transition-transform duration-500">
+            </div>
+
+            <!-- FOTO 14 -->
+            <div class="overflow-hidden rounded-xl shadow-md hover:shadow-xl transition-shadow duration-300">
+                <!-- INSTRUÇÃO: Troque o link 'src' pela URL da sua foto -->
+                <img src="./assets/IMG-20210901-WA0057.jpg" alt="Momento especial 14" class="galeria-img hover:scale-105 transition-transform duration-500">
+            </div>
+
+             <!-- FOTO 15 -->
+            <div class="overflow-hidden rounded-xl shadow-md hover:shadow-xl transition-shadow duration-300">
+                <!-- INSTRUÇÃO: Troque o link 'src' pela URL da sua foto -->
+                <img src="./assets/8c47337293f2393bcd4ce2e09abc9a7e.jpg" alt="Momento especial 14" class="galeria-img hover:scale-105 transition-transform duration-500">
+            </div>
+
+              <!-- FOTO 16 -->
+            <div class="overflow-hidden rounded-xl shadow-md hover:shadow-xl transition-shadow duration-300">
+                <!-- INSTRUÇÃO: Troque o link 'src' pela URL da sua foto -->
+                <img src="./assets/IMG_20210520_165652_178.jpg" alt="Momento especial 14" class="galeria-img hover:scale-105 transition-transform duration-500">
+            </div>
+
+             <!-- FOTO 17 -->
+            <div class="overflow-hidden rounded-xl shadow-md hover:shadow-xl transition-shadow duration-300">
+                <!-- INSTRUÇÃO: Troque o link 'src' pela URL da sua foto -->
+                <img src="./assets/IMG_20210524_121917_003.jpg" alt="Momento especial 14" class="galeria-img hover:scale-105 transition-transform duration-500">
+            </div>
+
+              <!-- FOTO 18 -->
+            <div class="overflow-hidden rounded-xl shadow-md hover:shadow-xl transition-shadow duration-300">
+                <!-- INSTRUÇÃO: Troque o link 'src' pela URL da sua foto -->
+                <img src="./assets/IMG_20200906_235648_708.jpg" alt="Momento especial 14" class="galeria-img hover:scale-105 transition-transform duration-500">
+            </div>
+
+        </div>
+
+        <!-- 4. BOTÃO DE SURPRESA (MENSAGENS) -->
+        <div class="flex justify-center mt-20">
+            <button onclick="showRomanticMessage()" class="px-8 py-4 bg-salmao-texto text-white rounded-full font-bold text-lg md:text-xl shadow-xl hover:bg-salmao-fundo hover:-translate-y-1 transition-all duration-300 flex items-center gap-3">
+                <span>Surpresa (Clique aqui)</span>
+                <span class="text-3xl animate-pulse">💌</span>
+            </button>
+        </div>
+    </section>
+
+    <!-- MODAL DE MENSAGENS ROMÂNTICAS (Oculto inicialmente) -->
+    <div id="romantic-modal" class="fixed inset-0 z-[110] flex items-center justify-center bg-black/50 backdrop-blur-sm opacity-0 invisible transition-all duration-300 p-4">
+        <div class="bg-white rounded-3xl p-8 md:p-10 max-w-lg w-full text-center shadow-2xl relative transform scale-95 transition-transform duration-300" id="romantic-modal-content">
+            <button onclick="closeRomanticMessage()" class="absolute top-4 right-5 text-3xl text-gray-300 hover:text-salmao-texto transition-colors">&times;</button>
+            <div class="text-5xl mb-6">✨</div>
+            <p id="romantic-text" class="text-xl md:text-2xl text-gray-700 font-medium mb-10 leading-relaxed italic">
+                <!-- Mensagem aparecerá aqui -->
+            </p>
+            <button onclick="showRomanticMessage()" class="px-6 py-3 bg-salmao-claro text-salmao-texto rounded-xl font-bold hover:bg-salmao-fundo hover:text-white transition-colors w-full md:w-auto">
+                Ler outra mensagem
+            </button>
+        </div>
+    </div>
+
+    <!-- RODAPÉ -->
+    <footer class="bg-salmao-fundo text-white py-10 mt-10">
+        <div class="container mx-auto px-4 text-center">
+            <p class="text-sm md:text-base font-medium mb-2">Feito com muito amor para Williane</p>
+            <p class="text-xs text-white/80">Criado em março de 2026</p>
+        </div>
+    </footer>
+
+    </div> <!-- FIM DO MAIN-CONTENT -->
+
+    <!-- 5. SCRIPTS COM TODA A LÓGICA -->
+    <script>
+        // --- LÓGICA DA TELA DE ENTRADA E MÚSICA ---
+        function startExperience() {
+            const welcomeScreen = document.getElementById('welcome-screen');
+            const mainContent = document.getElementById('main-content');
+            const body = document.getElementById('body');
+            const audio = document.getElementById('bg-music');
+            
+            // Toca a música (A interação no botão de clique é obrigatória para liberar o som no navegador)
+            audio.play().catch(e => console.log("Erro ao tocar áudio:", e));
+
+            // Efeito de sumir na tela de boas vindas
+            welcomeScreen.classList.add('fade-out');
+            
+            setTimeout(() => {
+                welcomeScreen.style.display = 'none';
+                // Mostra o conteúdo do site e permite rolar a página
+                mainContent.classList.remove('hidden');
+                mainContent.classList.add('fade-in');
+                body.classList.remove('overflow-hidden');
+            }, 800);
+        }
+
+        // --- LÓGICA DO CONTADOR (Desde 17/01/2017) ---
+        const startDate = new Date('2017-01-17T00:00:00');
+        
+        function updateCounter() {
+            const now = new Date();
+            
+            let years = now.getFullYear() - startDate.getFullYear();
+            let months = now.getMonth() - startDate.getMonth();
+            let days = now.getDate() - startDate.getDate();
+            
+            // Ajuste matemático para meses e dias da contagem
+            if (days < 0) {
+                months--;
+                const lastMonth = new Date(now.getFullYear(), now.getMonth(), 0);
+                days += lastMonth.getDate();
+            }
+            if (months < 0) {
+                years--;
+                months += 12;
+            }
+
+            // Calculando horas, minutos e segundos restantes
+            const diff = now - startDate;
+            const hours = Math.floor((diff / (1000 * 60 * 60)) % 24);
+            const minutes = Math.floor((diff / 1000 / 60) % 60);
+            const seconds = Math.floor((diff / 1000) % 60);
+
+            // Preenchendo o HTML (A tela)
+            document.getElementById('time-together').innerHTML = `
+                <div><span class="text-2xl md:text-3xl text-salmao-texto">${years}</span> anos</div>
+                <div><span class="text-2xl md:text-3xl text-salmao-texto">${months}</span> meses</div>
+                <div><span class="text-2xl md:text-3xl text-salmao-texto">${days}</span> dias</div>
+                <div class="col-span-2 mt-1 font-normal text-gray-500 text-sm md:text-base">
+                    e ${hours}h ${minutes}m ${seconds}s
+                </div>
+            `;
+        }
+        
+        // Inicia o relógio assim que abre a página
+        setInterval(updateCounter, 1000);
+        updateCounter();
+
+        // --- LÓGICA DAS MENSAGENS ROMÂNTICAS ---
+        const messages = [
+            "Cada dia ao seu lado é um presente que a vida me deu.",
+            "Nos casamos em 2017, mas meu amor por você só cresce a cada segundo.",
+            "Você é a minha pessoa favorita no mundo inteiro.",
+            "Minha melhor escolha foi ter dito 'sim' para nós.",
+            "Com você, construir uma vida tem sido a aventura mais linda.",
+            "Seu sorriso continua sendo o detalhe mais bonito dos meus dias.",
+            "Te amei ontem, te amo hoje e te amarei para sempre.",
+            "Você é a dona do meu coração, hoje e sempre.",
+            "Nossa história de amor é a minha preferida no universo.",
+            "Nem todas as palavras do mundo poderiam explicar o quanto te amo."
+        ];
+
+        function showRomanticMessage() {
+            const modal = document.getElementById('romantic-modal');
+            const modalContent = document.getElementById('romantic-modal-content');
+            const textElement = document.getElementById('romantic-text');
+            
+            // Escolhe uma mensagem aleatória
+            const randomMsg = messages[Math.floor(Math.random() * messages.length)];
+            textElement.innerText = '"' + randomMsg + '"';
+            
+            // Anima e mostra a janela na tela
+            modal.classList.remove('opacity-0', 'invisible');
+            modalContent.classList.remove('scale-95');
+            modalContent.classList.add('scale-100');
+        }
+
+        function closeRomanticMessage() {
+            const modal = document.getElementById('romantic-modal');
+            const modalContent = document.getElementById('romantic-modal-content');
+            
+            // Anima e esconde a janela
+            modal.classList.add('opacity-0', 'invisible');
+            modalContent.classList.remove('scale-100');
+            modalContent.classList.add('scale-95');
+        }
+    </script>
+</body>
+</html>
